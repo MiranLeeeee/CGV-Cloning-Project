@@ -1,0 +1,329 @@
+@import "./variables";
+@import "./mixin";
+
+body {
+    display: flex;
+    justify-content: $main-align;
+}
+
+#container {
+    width: $main-width;
+    background-image: url($container-bg);
+
+    font: {
+        family: "Noto Sans KR", sans-serif;
+        weight: bolder;
+    };
+
+    display: grid;
+    grid-template: {
+        columns: 90% 10%;
+        areas:
+            "header header"
+            "main aside"
+            "footer aside";
+    };
+}
+
+header {
+    grid-area: header;
+    text-align: $main-align;
+
+    a {
+        text-decoration: none;
+        color: $black-color;
+        font-size: 10px;
+
+        &:last-child {
+            color: $orange-color;
+        }
+    }
+
+    .social_networks {
+        float: left;
+        display: inline;
+        height: 0px;
+        @include element_margin("left", 100px);
+
+        img {
+            @include element_margin("right", $margin-length / 2);
+            @include element_size(12px, 12px);
+        }
+
+        a {
+            $header-border-style: 1px solid $dark-gray-color;
+            border-left: $header-border-style;
+
+            &:first-child {
+                img {
+                    width: 20px;
+                }
+            }
+
+            &:last-child {
+                border-right: $header-border-style;
+            }
+        }
+    }
+
+    .sub_menu {
+        display: inline;
+        float: right;
+        height: 0px;
+        @include element_margin("right", $margin-length * 10);
+
+        a:nth:child(n+4):nth-child(-n+6) {
+            color: $dark-gray-color;
+        }
+    }
+
+    .main_menu {
+        background: url($header-bg) repeat-x;
+        display: flex;
+
+        @include element_size(100%, 150px);
+        $menu-margin-top: 57px;
+        $menu-margin-left: 35px;
+
+        .cgv_logo {
+            display: inline;
+            @include element_size(115px, 50px);
+            @include element_margin("top", $menu-margin-top);
+            @include element_margin("left", $margin-length * 16);
+        }
+
+        a {
+            font-size: 15px;
+            @include element_margin("left", 20px);
+
+            &:last-child {
+                color: $black-color;
+            }
+        }
+
+        nav {
+            display: inline;
+            @include element_margin("top", $menu-margin-top);
+            @include element_margin("left", $menu-margin-left);
+        }
+
+        .search {
+            width: 200px;
+            @include element_margin("top", 45px);
+            @include element_margin("left", $menu-margin-left);
+
+            input {
+                width: 100px;
+            }
+
+            button {
+                @include element_margin("left", 0px);
+                border: none;
+                background-color: $red-color;
+                color: $white-color;
+            }
+        }
+    }
+}
+
+/*메인영역: 메인배너, movie selection, event, 공지사항*/
+main {
+    grid-area: main;
+
+    .banner {
+        text-align: $main-align;
+        background-image: url($main-bg);
+
+        img {
+            @include element_size(80%, 50%);
+        }
+    }
+
+
+    .movie_selection {
+        @include element_margin($length: 20px auto 0px auto);
+        text-align: $main-align;
+
+        div {
+            display: inline-flex;
+            justify-content: $main-align;
+        }
+
+        .poster {
+            height: 280px;
+            @include element_margin("left", $margin-length);
+            position: relative;
+            top: 53px;
+        }
+    }
+
+    .event {
+        @include element_margin($length: 20px auto 0px auto);
+        text-align: $main-align;
+
+        img:first-child {
+            @include element_margin("bottom", $margin-length);
+        }
+
+        a {
+            height: 20px;
+            background-color: $red-color;
+            color: $white-color;
+            padding-left: 10px;
+            text-decoration: none;
+        }
+
+        &_banners {
+            display: flex;
+            justify-content: $main-align;
+            gap: $margin-length;
+
+            img {
+                @include element_size(23%, 200px);
+                @include element_margin("top", $margin-length * 2);
+            }
+        }
+
+        hr {
+            background-color: $black-color;
+            height: 2px;
+            @include element_margin($length: $margin-length * 2 0);
+        }
+
+        &_boxes {
+            display: flex;
+            justify-content: $main-align;
+            gap: $margin-length * 4;
+
+            .event_box {
+                img {
+                    @include element_size(100%, 200px);
+                    border: 3px solid $black-color;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    .notice {
+        @include element_margin("left", $margin-length);
+        $notice-margin: $margin-length - 3px;
+
+        span {
+            font: {
+                size: 12px;
+                weight: lighter;
+            };
+            color: $dark-gray-color;
+            @include element_margin("top", $notice-margin);
+        }
+
+        .notice_date {
+            @include element_margin("top", $notice-margin);
+            float: right;
+        }
+    }
+
+    .sponsor {
+        text-align: $main-align;
+
+        img:nth-child(2) {
+            width: $main-width;
+        }
+    }
+}
+
+/*사이드영역: 사이드 배너*/
+aside {
+    grid-area: aside;
+
+    .side_menu {
+        @include element_margin("left", $margin-length / 2);
+
+        border: {
+            width: 3px;
+            style: solid;
+            color: $red-color;
+            radius: 5px;
+        };
+        text-align: $main-align;
+    }
+
+    img {
+        width: 90%;
+    }
+}
+
+/*하단영역*/
+footer {
+    grid-area: footer;
+    width: $main-width;
+    text-align: $main_align;
+
+    font: {
+        size: 11.5px;
+        weight: lighter;
+    };
+
+    a {
+        text-decoration: none;
+        color: $black-color;
+
+        &:nth-child(9),
+        &:nth-child(13) {
+            color: $orange-color;
+        }
+    }
+
+    .company_info {
+        display: flex;
+        @include element_margin("top", $margin-length);
+        @include element_margin("left", $margin-length);
+
+        .cgv_logo {
+            @include element_size(100px, 70px);
+            filter: grayscale(100%);
+            opacity: .4;
+        }
+
+        .company_detail {
+            text-align: left;
+
+            button {
+                background-color: #FDFCF0;
+
+                font: {
+                    size: 9px;
+                    weight: lighter;
+                };
+
+                border: solid 1px $dark-gray-color;
+            }
+        }
+
+        .sns_detail {
+            img {
+                @include element_size(30px, 30px);
+            }
+        }
+
+        select {
+            @include element_size(100px, 30px);
+            @include element_margin($length: 10px);
+            font-size: 10px;
+        }
+
+        .go_btn {
+            @include element_size(30px, 30px);
+            @include element_margin("top", 10px);
+            font-size: 10px;
+            border: none;
+            background-color: $dark-gray-color;
+            color: $white-color;
+        }
+    }
+
+    img:last-child {
+        width: $main-width;
+    }
+}
