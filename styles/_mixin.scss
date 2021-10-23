@@ -1,0 +1,19 @@
+@mixin element_size($width: null, $height: null) {
+    @if $width {
+        width: $width;
+    }
+
+    @if $height {
+        height: $height;
+    }
+}
+
+@mixin element_margin($side: null, $length) {
+    @if $side {
+        margin-#{$side}: $length;
+    }
+
+    @else {
+        margin: $length;
+    }
+}
