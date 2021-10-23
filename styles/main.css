@@ -1,0 +1,306 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  width: 980px;
+  background-image: url("../images/background_img.gif");
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: bolder;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer aside";
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 10px;
+}
+
+header a:last-child {
+  color: #E75F26;
+}
+
+header .social_networks {
+  float: left;
+  display: inline;
+  height: 0px;
+  margin-left: 100px;
+}
+
+header .social_networks img {
+  margin-right: 5px;
+  width: 12px;
+  height: 12px;
+}
+
+header .social_networks a {
+  border-left: 1px solid #606060;
+}
+
+header .social_networks a:first-child img {
+  width: 20px;
+}
+
+header .social_networks a:last-child {
+  border-right: 1px solid #606060;
+}
+
+header .sub_menu {
+  display: inline;
+  float: right;
+  height: 0px;
+  margin-right: 100px;
+}
+
+header .sub_menu a:nth:child(n+4):nth-child(-n+6) {
+  color: #606060;
+}
+
+header .main_menu {
+  background: url("https://img.cgv.co.kr/r2014/images/common/bg/bg_header.gif") repeat-x;
+  display: flex;
+  width: 100%;
+  height: 150px;
+}
+
+header .main_menu .cgv_logo {
+  display: inline;
+  width: 115px;
+  height: 50px;
+  margin-top: 57px;
+  margin-left: 160px;
+}
+
+header .main_menu a {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+header .main_menu a:last-child {
+  color: #000000;
+}
+
+header .main_menu nav {
+  display: inline;
+  margin-top: 57px;
+  margin-left: 35px;
+}
+
+header .main_menu .search {
+  width: 200px;
+  margin-top: 45px;
+  margin-left: 35px;
+}
+
+header .main_menu .search input {
+  width: 100px;
+}
+
+header .main_menu .search button {
+  margin-left: 0px;
+  border: none;
+  background-color: #FF0000;
+  color: #FFFFFF;
+}
+
+/*메인영역: 메인배너, movie selection, event, 공지사항*/
+main {
+  grid-area: main;
+}
+
+main .banner {
+  text-align: center;
+  background-image: url("https://img.cgv.co.kr/r2014/images/common/bg/bg_c_bricks.png");
+}
+
+main .banner img {
+  width: 80%;
+  height: 50%;
+}
+
+main .movie_selection {
+  margin: 20px auto 0px auto;
+  text-align: center;
+}
+
+main .movie_selection div {
+  display: inline-flex;
+  justify-content: center;
+}
+
+main .movie_selection .poster {
+  height: 280px;
+  margin-left: 10px;
+  position: relative;
+  top: 53px;
+}
+
+main .event {
+  margin: 20px auto 0px auto;
+  text-align: center;
+}
+
+main .event img:first-child {
+  margin-bottom: 10px;
+}
+
+main .event a {
+  height: 20px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+main .event_banners {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+main .event_banners img {
+  width: 23%;
+  height: 200px;
+  margin-top: 20px;
+}
+
+main .event hr {
+  background-color: #000000;
+  height: 2px;
+  margin: 20px 0;
+}
+
+main .event_boxes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+main .event_boxes .event_box img {
+  width: 100%;
+  height: 200px;
+  border: 3px solid #000000;
+  padding: 5px;
+}
+
+main .notice {
+  margin-left: 10px;
+}
+
+main .notice span {
+  font-size: 12px;
+  font-weight: lighter;
+  color: #606060;
+  margin-top: 7px;
+}
+
+main .notice .notice_date {
+  margin-top: 7px;
+  float: right;
+}
+
+main .sponsor {
+  text-align: center;
+}
+
+main .sponsor img:nth-child(2) {
+  width: 980px;
+}
+
+/*사이드영역: 사이드 배너*/
+aside {
+  grid-area: aside;
+}
+
+aside .side_menu {
+  margin-left: 5px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #FF0000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+aside img {
+  width: 90%;
+}
+
+/*하단영역*/
+footer {
+  grid-area: footer;
+  width: 980px;
+  text-align: center;
+  font-size: 11.5px;
+  font-weight: lighter;
+}
+
+footer a {
+  text-decoration: none;
+  color: #000000;
+}
+
+footer a:nth-child(9),
+footer a:nth-child(13) {
+  color: #E75F26;
+}
+
+footer .company_info {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+footer .company_info .cgv_logo {
+  width: 100px;
+  height: 70px;
+  filter: grayscale(100%);
+  opacity: 0.4;
+}
+
+footer .company_info .company_detail {
+  text-align: left;
+}
+
+footer .company_info .company_detail button {
+  background-color: #FDFCF0;
+  font-size: 9px;
+  font-weight: lighter;
+  border: solid 1px #606060;
+}
+
+footer .company_info .sns_detail img {
+  width: 30px;
+  height: 30px;
+}
+
+footer .company_info select {
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  font-size: 10px;
+}
+
+footer .company_info .go_btn {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  font-size: 10px;
+  border: none;
+  background-color: #606060;
+  color: #FFFFFF;
+}
+
+footer img:last-child {
+  width: 980px;
+}
